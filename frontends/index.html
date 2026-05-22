@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stick Engine - Profiles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="auth-screen" class="ui-overlay">
+        <div class="auth-box">
+            <h2>Social World</h2>
+            
+            <div class="login-anim-container">
+                <canvas id="loginAnimCanvas" width="120" height="90"></canvas>
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username..." maxlength="14">
+            </div>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="age" placeholder="18" min="1" max="99">
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="color-picker-row">
+                <label>Custom Theme Color:</label>
+                <input type="color" id="stick-color" value="#00fff2">
+            </div>
+
+            <button id="btn-primary-action">JOIN</button>
+        </div>
+    </div>
+
+    <div id="watermark-credit">ctto: azuki</div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Detailed In-Game HUD overlay for target configurations -->
+    <div id="player-details-card" class="details-card-hud" style="display: none;">
+        <div class="card-header">
+            <span id="hud-color-indicator" class="dot"></span>
+            <h3 id="hud-username">Username</h3>
+        </div>
+        <hr class="divider">
+        <div class="card-body">
+            <p><strong>Gender:</strong> <span id="hud-gender">-</span></p>
+            <p><strong>Age:</strong> <span id="hud-age">-</span></p>
+        </div>
+    </div>
+
+    <div id="chat-container">
+        <div id="chat-history"></div>
+        <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Say something or run /wave..." maxlength="60">
+            <button id="btn-send">Send</button>
+        </div>
+    </div>
+
+    <div id="minimap-container">
+        <canvas id="minimapCanvas" width="130" height="130"></canvas>
+    </div>
+
+    <div id="joystick-zone"></div>
+
+    <script src="js/joystick.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
